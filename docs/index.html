@@ -12,11 +12,27 @@
   <div id="app"></div>
   <script>
     window.$docsify = {
-      name: '',
-      repo: ''
+      name: 'Anisland Wiki',
+      repo: 'ErrorCode42/Anisland-Wiki',
+      loadSidebar: true,
+      subMaxLevel: 4,
+      autoHeader: true,
+      formatUpdated: '{YYYY}-{MM}-{DD} {HH}:{mm}',
+      plugins: [
+        EditOnGithubPlugin.create(
+          'https://github.com/ErrorCode42/Anisland-Wiki/tree/main/docs'
+          )
+      ],
+      copyCode: {
+        buttonText: 'Copy to clipboard',
+        errorText: 'Error',
+        successText: 'Copied'
+      }
     }
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-edit-on-github"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code@2"></script>
 </body>
 </html>
