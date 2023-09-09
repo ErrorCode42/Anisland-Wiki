@@ -21,11 +21,17 @@
       repo: 'ErrorCode42/Anisland-Wiki',
       loadSidebar: true,
       subMaxLevel: 4,
-      autoHeader: true,
+      // autoHeader: true,
+      auto2top: true,
       formatUpdated: '{YYYY}-{MM}-{DD} {HH}:{mm}',
       coverpage: true,
       onlyCover: true,
       relativePath: true,
+      nameLink: {
+        '/zh-cn/': '#/zh-cn/',
+        '/en/': '#/en/',
+        '/': '#/'
+      },
       plugins: [
         function(hook, vm) {
           var url =
