@@ -7,11 +7,23 @@
   <meta name="description" content="Wikipedia of Anisland">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <!-- Theme: Simple (light + dark) -->
-  <link rel="stylesheet" media="(prefers-color-scheme: light)" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
-  <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css">
+  <link rel="stylesheet" media="(prefers-color-scheme: light)" href="//cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
+  <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="//cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css">
+  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism.min.css"> -->
+  <link rel="stylesheet" href="//unpkg.com/@fortawesome/fontawesome-free/css/fontawesome.css" />
+  <link rel="stylesheet" href="//unpkg.com/@fortawesome/fontawesome-free/css/brands.css" />
+  <link rel="stylesheet" href="//unpkg.com/@fortawesome/fontawesome-free/css/regular.css" />
+  <link rel="stylesheet" href="//unpkg.com/@fortawesome/fontawesome-free/css/solid.css" />
+  <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Overpass'>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/jetbrains-mono/css/jetbrains-mono.min.css">
   <style>
-
+    :root {
+      --base-font-family: Overpass, "Sarasa UI SC Regular", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      --code-font-family: "Jetbrains Mono", Inconsolata, Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+      --table-cell-border-width: 0.1em;
+    }
   </style>
+  <script src="//unpkg.com/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js"></script>
 </head>
 <body>
   <div id="app"></div>
@@ -34,13 +46,9 @@
       },
       plugins: [
         function(hook, vm) {
-          var url =
-            'https://github.com/ErrorCode42/Anisland-Wiki/tree/main/docs/' +
-            vm.route.file;
           var modify = '<div style="float: right; margin-left: 0.5em"><span>Last modified {docsify-updated}</span></div>';
-          var editHtml = '<div style="text-align: right;"><a href="' + url + '">📝 EDIT DOCUMENT</a></div>';
           var footer = [
-            '<hr style="padding: 0.35em;">',
+            '<hr>',
             '<footer>',
             '<span>Powered by <a href="https://github.com/docsifyjs/docsify" target="_blank">docsify</a>.</span>',
             '</footer>'
@@ -51,6 +59,10 @@
           });
 
           hook.afterEach(function(html) {
+            var url =
+              'https://github.com/ErrorCode42/Anisland-Wiki/tree/main/docs/' +
+              vm.route.file;
+            var editHtml = '<div style="text-align: right;"><a href="' + url + '">📝 EDIT DOCUMENT</a></div>';
             return editHtml + html + footer;
           });
         }
@@ -61,6 +73,11 @@
         successText: 'Copied'
       }
     }
+    addBackToTop({
+      diameter: 56,
+      backgroundColor: '#0b87da',
+      textColor: '#fff'
+    });
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
@@ -68,5 +85,7 @@
   <script src="//cdn.jsdelivr.net/npm/docsify-copy-code@2"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/zoom-image.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-pangu/lib/pangu.min.js"></script>
+  <script src="//unpkg.com/docsify-fontawesome/dist/docsify-fontawesome.min.js"></script>
 </body>
 </html>
