@@ -37,11 +37,7 @@
       },
       plugins: [
         function(hook, vm) {
-          var url =
-            'https://github.com/ErrorCode42/Anisland-Wiki/tree/main/docs/' +
-            vm.route.file;
           var modify = '<div style="float: right; margin-left: 0.5em"><span>Last modified {docsify-updated}</span></div>';
-          var editHtml = '<div style="text-align: right;"><a href="' + url + '">📝 EDIT DOCUMENT</a></div>';
           var footer = [
             '<hr>',
             '<footer>',
@@ -54,6 +50,10 @@
           });
 
           hook.afterEach(function(html) {
+            var url =
+              'https://github.com/ErrorCode42/Anisland-Wiki/tree/main/docs/' +
+              vm.route.file;
+            var editHtml = '<div style="text-align: right;"><a href="' + url + '">📝 EDIT DOCUMENT</a></div>';
             return editHtml + html + footer;
           });
         }
