@@ -7,7 +7,6 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
-  <script src="//cdn.jsdelivr.net/npm/docsify-edit-on-github"></script>
 </head>
 <body>
   <div id="app"></div>
@@ -20,9 +19,27 @@
       autoHeader: true,
       formatUpdated: '{YYYY}-{MM}-{DD} {HH}:{mm}',
       plugins: [
-        EditOnGithubPlugin.create(
-          'https://github.com/ErrorCode42/Anisland-Wiki/tree/main/docs'
-        )
+        function(hook, vm) {
+          var url =
+            'https://github.com/ErrorCode42/Anisland-Wiki/tree/main/docs/' +
+            vm.route.file;
+          var modify = '<div style="float: right; margin-left: 0.5em"><span>Last modified {docsify-updated}</span></div>';
+          var editHtml = '<div style="text-align: right;"><a href="' + url + '">📝 EDIT DOCUMENT</a></div>';
+          var footer = [
+            '<hr style="padding: 0.35em;">',
+            '<footer>',
+            '<span>Powered by <a href="https://github.com/docsifyjs/docsify" target="_blank">docsify</a>.</span>',
+            '</footer>'
+          ].join('');
+
+          hook.beforeEach(function(html) {
+            return html + '\n' + modify;
+          });
+
+          hook.afterEach(function(html) {
+            return editHtml + html + footer;
+          });
+        }
       ],
       copyCode: {
         buttonText: 'Copy to clipboard',
