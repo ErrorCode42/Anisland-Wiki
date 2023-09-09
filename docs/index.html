@@ -10,8 +10,11 @@
   <link rel="stylesheet" media="(prefers-color-scheme: light)" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
   <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css">
   <style>
-
+    :root {
+      --table-cell-border-width: 0.1em;
+    }
   </style>
+  <script src="//unpkg.com/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js"></script>
 </head>
 <body>
   <div id="app"></div>
@@ -40,7 +43,7 @@
           var modify = '<div style="float: right; margin-left: 0.5em"><span>Last modified {docsify-updated}</span></div>';
           var editHtml = '<div style="text-align: right;"><a href="' + url + '">📝 EDIT DOCUMENT</a></div>';
           var footer = [
-            '<hr style="padding: 0.35em;">',
+            '<hr>',
             '<footer>',
             '<span>Powered by <a href="https://github.com/docsifyjs/docsify" target="_blank">docsify</a>.</span>',
             '</footer>'
@@ -61,6 +64,11 @@
         successText: 'Copied'
       }
     }
+    addBackToTop({
+      diameter: 56,
+      backgroundColor: '#0b87da',
+      textColor: '#fff'
+    });
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
