@@ -25,6 +25,19 @@
       --cover-background-color: var(--theme-color);
       --table-cell-border-width: 0.1em;
     }
+    .app-nav {
+      position: fixed;
+      top: 0;
+      right: 45px;
+      padding: 0.6em 40px 0.6em 0;
+      background-color: var(--base-background-color);
+    }
+    img.emoji {
+      height: 1em;
+      width: 1em;
+      margin: 0 0.05em 0 0.1em;
+      vertical-align: -0.1em;
+    }
   </style>
   <script src="//unpkg.com/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js"></script>
 </head>
@@ -39,6 +52,7 @@
       subMaxLevel: 4,
       // autoHeader: true,
       auto2top: true,
+      loadNavbar: true,
       formatUpdated: '{YYYY}-{MM}-{DD} {HH}:{mm}',
       coverpage: true,
       onlyCover: true,
@@ -69,6 +83,14 @@
             var editHtml = '<div style="text-align: right;"><a href="' + url + '">📝 EDIT DOCUMENT</a></div>';
             return editHtml + html + footer;
           });
+
+          hook.doneEach(function() {
+            twemoji.parse(document, {
+              base: "https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/",
+              ext: ".svg",
+              folder: "svg",
+            });
+          });
         }
       ],
       copyCode: {
@@ -90,6 +112,7 @@
   <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/zoom-image.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-pangu/lib/pangu.min.js"></script>
+  <script src="//unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous" ></script>
   <script src="//unpkg.com/docsify-fontawesome/dist/docsify-fontawesome.min.js"></script>
 </body>
 </html>
