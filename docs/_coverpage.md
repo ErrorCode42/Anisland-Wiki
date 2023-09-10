@@ -1,3 +1,5 @@
+<!-- ![logo]() -->
+
 # Anisland Wiki
 
 [English](en/)
