@@ -44,6 +44,9 @@
 <body>
   <div id="app"></div>
   <script>
+    if (typeof navigator.serviceWorker !== 'undefined') {
+      navigator.serviceWorker.register('sw.js');
+    };
     themeColor = getComputedStyle(document.documentElement).getPropertyValue('--theme-color');
     window.$docsify = {
       name: 'Anisland Wiki',
