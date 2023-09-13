@@ -25,10 +25,10 @@
       --cover-background-color: var(--theme-color);
       --table-cell-border-width: 0.1em;
     }
-    .app-nav {
+    .app-nav:has(ul) {
       position: fixed;
       top: 0;
-      right: 45px;
+      right: 40px;
       padding: 1em 40px 0.6em 0;
       background-color: var(--base-background-color);
     }
@@ -44,6 +44,9 @@
 <body>
   <div id="app"></div>
   <script>
+    if (typeof navigator.serviceWorker !== 'undefined') {
+      navigator.serviceWorker.register('sw.js');
+    };
     themeColor = getComputedStyle(document.documentElement).getPropertyValue('--theme-color');
     window.$docsify = {
       name: 'Anisland Wiki',
