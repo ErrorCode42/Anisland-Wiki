@@ -1,14 +1,19 @@
 {
     "name": "Anisland Wiki",
     "description": "Wikipedia of Anisland",
-    "start_url": "/",
+    "start_url": "/Anisland-Wiki/#/",
     "lang": "zh-CN",
     "theme_color": "#0b87da",
     "display": "standalone",
     "icons": [
       {
         "src": "logo.svg",
-        "sizes": "120x120",
+        "sizes": "192x192",
+        "type": "image/svg+xml"
+      },
+      {
+        "src": "logo.svg",
+        "sizes": "512x512",
         "type": "image/svg+xml"
       }
     ]
