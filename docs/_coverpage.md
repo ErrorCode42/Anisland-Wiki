@@ -1,4 +1,4 @@
-![logo](logo.svg ':size=40%')
+![logo](_media/icon.svg ':size=40%')
 
 # Anisland Wiki
 
