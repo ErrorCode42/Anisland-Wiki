@@ -41,12 +41,16 @@
       --cover-background-color: var(--theme-color);
       --table-cell-border-width: 0.1em;
     }
-    .app-nav:has(ul) {
+    body:not(.close) nav.app-nav:has(ul) {
+      transition: all 0.25s ease-out;
       position: fixed;
       top: 0;
       right: 40px;
       padding: 1em 40px 0.6em 0;
       background-color: var(--base-background-color);
+    }
+    body[data-page="README.md"] nav {
+      display: none;
     }
     img.emoji {
       height: 1em;
