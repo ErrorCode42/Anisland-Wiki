@@ -11,8 +11,8 @@
 - **主要内容**
 - [游戏机制](game-machanics.md) 
 - [生物群系](biomes.md) 
--  [characters.md](characters.md) 
-  -  [npcs.md](npcs.md) 
+-  [角色](characters.md) 
+  -  [npc](npcs.md) 
 - [生物](creatures.md)  
   - [头目](bosses.md) 
 - [物品](items.md) 
